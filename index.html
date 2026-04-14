@@ -6,7 +6,7 @@
     <title>Silvio Meira Digital | AI Content Pipeline</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
@@ -15,6 +15,7 @@
             --text: #f8fafc;
             --text-muted: #94a3b8;
             --accent: #60a5fa;
+            --code-bg: #020617;
         }
 
         * {
@@ -76,9 +77,8 @@
             letter-spacing: 2px;
         }
 
-        /* Seções de Texto */
         section {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
         h2 {
@@ -101,51 +101,87 @@
             color: var(--text);
         }
 
-        /* Box de Objetivo */
-        .objective-box {
-            background: linear-gradient(145deg, var(--card-bg), #111827);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 40px 0;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .objective-box h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        /* Pipeline Visual */
-        .pipeline-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .step {
-            background: rgba(255, 255, 255, 0.03);
+        /* Técnicas Section */
+        .tech-card {
+            background: var(--card-bg);
             padding: 30px;
-            border-radius: 16px;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
         }
 
-        .step h4 {
+        .tech-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.01);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 15px;
+        }
+
+        .tech-icon {
+            background: rgba(37, 99, 235, 0.1);
             color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-family: 'Fira Code', monospace;
+            font-weight: bold;
+        }
+
+        .tech-card h3 {
+            font-size: 1.4rem;
+            color: var(--text);
+        }
+
+        .tech-card code {
+            display: block;
+            background: var(--code-bg);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+            overflow-x: auto;
+        }
+
+        .cta-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .cta-inline:hover {
+            text-decoration: underline;
+        }
+
+        .cta-inline span {
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
         }
 
         /* Colaboração */
         .collab-section {
             text-align: center;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
             color: white;
-            padding: 60px 40px;
+            padding: 80px 40px;
             border-radius: 32px;
             margin-top: 100px;
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
         }
 
         .collab-section h2 {
@@ -171,12 +207,11 @@
             text-decoration: none;
             font-weight: 800;
             transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         footer {
@@ -206,51 +241,64 @@
         <section id="biografia">
             <h2>Quem é Silvio Meira?</h2>
             <p>
-                <b>Silvio Meira</b> é cientista da computação, professor e empreendedor brasileiro, amplamente reconhecido por sua liderança em engenharia de software, inovação e transformação digital. Nascido em Taperoá, na Paraíba, Meira tornou-se <b>Professor Emérito do Centro de Informática da UFPE</b>, Professor Extraordinário da <b>CESAR School</b> e Fundador/Cientista-chefe da <b>TDS Company</b>.
+                <b>Silvio Meira</b> é cientista da computação, professor e empreendedor brasileiro, amplamente reconhecido por sua liderança em engenharia de software, inovação e transformação digital. Atualmente, ele é a figura central por trás da <b>TDS Company</b> e do <b>Porto Digital</b>, focando sua visão estratégica em como a tecnologia reorganiza as instituições e o comportamento social no Brasil.
             </p>
             <p>
-                Sua formação acadêmica é robusta: graduado em Engenharia Eletrônica pelo <b>ITA</b>, mestre pela UFPE e doutor em Ciência da Computação pela <b>University of Kent</b>, no Reino Unido. Essa trajetória permite que ele transite com autoridade entre a pesquisa de ponta e a estratégia de mercado, sendo a figura central na criação e consolidação do <b>Porto Digital</b> no Recife, um dos maiores parques tecnológicos do Brasil.
-            </p>
-            <p>
-                Como articulador de ecossistemas, Silvio Meira não apenas forma talentos, mas desenha caminhos para startups e grandes corporações ganharem escala. Sua atuação foi reconhecida com a <b>Ordem Nacional do Mérito Científico</b> e a <b>Ordem de Rio Branco</b>, consolidando-o como um dos intérpretes mais influentes de como a tecnologia reorganiza as instituições e o comportamento social no Brasil.
+                Sua marca registrada é a capacidade de traduzir complexidade tecnológica em estratégia de negócio. Menos "evangelista" e mais um intérprete profundo, Meira ajuda o mercado a entender que inovação não é adoção de ferramentas, mas mudança estrutural na cultura e nos modelos de valor.
             </p>
         </section>
 
-        <div class="objective-box">
-            <h3>O Objetivo do Projeto</h3>
-            <p>
-                A iniciativa <b>Silvio Meira Digital</b> nasceu para capturar a essência de décadas de publicações públicas do professor e transformá-las em um ativo de inteligência estruturado. O foco não é apenas coletar dados, mas entender a <b>forma de escrita</b>, os <b>padrões de conversa</b> e a lógica estratégica de Meira.
-            </p>
-            <p>
-                O resultado final deste pipeline é a criação de um <b>Custom GPT no ChatGPT</b>. Esta ferramenta servirá como um mentor digital para startups e negócios, oferecendo insights baseados na vasta base de conhecimento do professor sobre efeitos de rede, ecossistemas figitais e transformação estratégica.
-            </p>
-        </div>
+        <section id="tecnicas">
+            <h2>Técnicas de Engenharia</h2>
+            <p>O pipeline <b>Silvio Meira Digital</b> utiliza técnicas avançadas de processamento de dados para garantir fidelidade e contexto. Conheça as principais:</p>
 
-        <section id="pipeline">
-            <h2>Como Funciona</h2>
-            <p>Nosso pipeline de dados é dividido em três camadas críticas de engenharia:</p>
-            <div class="pipeline-grid">
-                <div class="step">
-                    <h4>1. Coleta e Crawler</h4>
-                    <p>Utilizamos <b>Playwright</b> para navegar pelo acervo digital público, garantindo a captura fiel de posts e transcrições de mídia.</p>
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">CRAWL</div>
+                    <h3>Headless Scraping Dinâmico</h3>
                 </div>
-                <div class="step">
-                    <h4>2. Estruturação MD</h4>
-                    <p>O conteúdo é convertido para <b>Markdown</b> limpo, removendo ruídos visuais e mantendo apenas o conhecimento puro.</p>
+                <p>Para lidar com SPAs e carregamentos assíncronos, utilizamos o <b>Playwright</b>. Ele garante que todo o conteúdo figital seja capturado após o render completo do DOM.</p>
+                <code>await page.goto(url, { waitUntil: 'networkidle' });</code>
+                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Melhore nossa extração. Faça seu Pull Request! &rarr;</a>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">TRANS</div>
+                    <h3>Transcrição via Local LLM</h3>
                 </div>
-                <div class="step">
-                    <h4>3. Fine-Tuning & GPT</h4>
-                    <p>A base segmentada alimenta o <b>Custom GPT</b>, criando uma interface de conversa que reflete os padrões cognitivos de Silvio Meira.</p>
+                <p>Integramos o <b>Ollama (Llama 3)</b> para transcrever áudios e vídeos. A IA não apenas transcreve, mas formata o texto em Markdown estruturado com semântica rica.</p>
+                <code>ollama run llama3 "Transcreva este áudio em Markdown..."</code>
+                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Otimize nosso prompt de transcrição. Contribua com um PR! &rarr;</a>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">CLEAN</div>
+                    <h3>Sanitização com Regex e BS4</h3>
                 </div>
+                <p>Limpamos o ruído das páginas (menus, footers, anúncios) usando seletores avançados e expressões regulares para manter apenas o "corpo" do pensamento de Silvio Meira.</p>
+                <code>re.sub(r'[\n]{3,}', '\n\n', cleaned_text)</code>
+                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Ajude a refinar nossos filtros de limpeza. Faça seu Pull Request! &rarr;</a>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">CHUNK</div>
+                    <h3>Segmentação para Context Window</h3>
+                </div>
+                <p>Dividimos a base unificada em chunks inteligentes para respeitar os limites de contexto do Custom GPT, garantindo respostas precisas e sem perda de histórico.</p>
+                <code>LIMITE_TAMANHO = 5_000_000  # 5MB per chunk</code>
+                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Melhore nossa lógica de segmentação. Contribua via PR! &rarr;</a>
             </div>
         </section>
 
         <section class="collab-section">
-            <h2>Contribua com o Projeto</h2>
+            <h2>O Projeto é Coletivo</h2>
             <p>
-                Este projeto é aberto e movido pela comunidade. Se você entende de Python, IA ou Engenharia de Dados, junte-se a nós para aprimorar este pipeline.
+                O objetivo final é criar um <b>Custom GPT</b> que sirva de mentor estratégico para startups. Sua contribuição é vital para que essa inteligência seja o mais fiel possível.
             </p>
-            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn">Colaborar no GitHub</a>
+            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn">Abrir um Pull Request no GitHub</a>
         </section>
 
         <footer>
