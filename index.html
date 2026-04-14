@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvio Meira Digital | AI Content Pipeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Pipeline Section */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 60px 0 40px;
+        }
+
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .step {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .step p {
+            color: var(--text-muted);
+        }
+
+        /* Stack Section */
+        .stack {
+            text-align: center;
+            background: rgba(37, 99, 235, 0.05);
+            padding: 60px 20px;
+            border-radius: 24px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="assets/banner_rounded.png" alt="Silvio Meira Digital" class="logo">
+            <h1>Silvio Meira Digital</h1>
+            <p class="subtitle">O pipeline definitivo para transformar décadas de conteúdo figital em inteligência generativa.</p>
+            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn">Ver no GitHub</a>
+        </header>
+
+        <h2 class="section-title">O Pipeline</h2>
+        <div class="pipeline">
+            <div class="step">
+                <span class="step-number">01</span>
+                <h3>Extração Figital</h3>
+                <p>Crawler inteligente utilizando <b>Playwright</b> para navegar e capturar postagens, áudios e vídeos do acervo digital.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">02</span>
+                <h3>Processamento</h3>
+                <p>Conversão massiva para <b>Markdown</b> estruturado, transcrição de vídeos via <b>Ollama (Llama 3)</b> e limpeza de metadados inúteis.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">03</span>
+                <h3>Inteligência</h3>
+                <p>Alimentação de um <b>Custom GPT</b> no ChatGPT com a base unificada, permitindo interações precisas com o pensamento de Silvio Meira.</p>
+            </div>
+        </div>
+
+        <div class="stack">
+            <h2>Stack de Engenharia</h2>
+            <div class="tags">
+                <span class="tag">Python 3.10+</span>
+                <span class="tag">Playwright</span>
+                <span class="tag">BeautifulSoup4</span>
+                <span class="tag">Ollama</span>
+                <span class="tag">Llama 3</span>
+                <span class="tag">YT-DLP</span>
+                <span class="tag">FFmpeg</span>
+                <span class="tag">Markdownify</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Silvio Meira Digital Content Pipeline.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
