@@ -6,7 +6,7 @@
     <title>Silvio Meira Digital | AI Content Pipeline</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
@@ -14,6 +14,7 @@
             --card-bg: #1e293b;
             --text: #f8fafc;
             --text-muted: #94a3b8;
+            --accent: #60a5fa;
         }
 
         * {
@@ -26,28 +27,35 @@
             font-family: "Inter", sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.8;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Hero Section */
+        /* Hero */
         header {
-            padding: 80px 0 60px;
+            padding: 100px 0 60px;
             text-align: center;
         }
 
-        .logo {
-            width: 150px;
-            height: 150px;
+        .hero-img {
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.4);
             margin-bottom: 2rem;
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-img:hover {
+            transform: scale(1.05);
         }
 
         h1 {
@@ -56,112 +64,133 @@
             background: linear-gradient(to right, #60a5fa, #2563eb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Seções de Texto */
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+            border-left: 5px solid var(--primary);
+            padding-left: 20px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        b {
+            color: var(--text);
+        }
+
+        /* Box de Objetivo */
+        .objective-box {
+            background: linear-gradient(145deg, var(--card-bg), #111827);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .objective-box h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* Pipeline Visual */
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .step h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Colaboração */
+        .collab-section {
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 32px;
+            margin-top: 100px;
+        }
+
+        .collab-section h2 {
+            border: none;
+            padding: 0;
+            color: white;
             margin-bottom: 1rem;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
+        .collab-section p {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
             max-width: 600px;
             margin: 0 auto 2rem;
         }
 
-        /* Pipeline Section */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin: 60px 0 40px;
-        }
-
-        .pipeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 80px;
-        }
-
-        .step {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .step:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .step-number {
+        .btn {
             display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            background: white;
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .step h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        .step p {
-            color: var(--text-muted);
-        }
-
-        /* Stack Section */
-        .stack {
-            text-align: center;
-            background: rgba(37, 99, 235, 0.05);
-            padding: 60px 20px;
-            border-radius: 24px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
         footer {
             padding: 60px 0;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 2rem;
-            transition: opacity 0.3s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .hero-img { width: 180px; height: 180px; }
         }
     </style>
 </head>
@@ -169,47 +198,63 @@
 
     <div class="container">
         <header>
-            <img src="assets/banner_rounded.png" alt="Silvio Meira Digital" class="logo">
+            <img src="assets/silviomeira.jpeg" alt="Silvio Meira" class="hero-img">
             <h1>Silvio Meira Digital</h1>
-            <p class="subtitle">O pipeline definitivo para transformar décadas de conteúdo figital em inteligência generativa.</p>
-            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn">Ver no GitHub</a>
+            <p class="tagline">Inteligência Coletiva & Engenharia de Futuro</p>
         </header>
 
-        <h2 class="section-title">O Pipeline</h2>
-        <div class="pipeline">
-            <div class="step">
-                <span class="step-number">01</span>
-                <h3>Extração Figital</h3>
-                <p>Crawler inteligente utilizando <b>Playwright</b> para navegar e capturar postagens, áudios e vídeos do acervo digital.</p>
-            </div>
-            <div class="step">
-                <span class="step-number">02</span>
-                <h3>Processamento</h3>
-                <p>Conversão massiva para <b>Markdown</b> estruturado, transcrição de vídeos via <b>Ollama (Llama 3)</b> e limpeza de metadados inúteis.</p>
-            </div>
-            <div class="step">
-                <span class="step-number">03</span>
-                <h3>Inteligência</h3>
-                <p>Alimentação de um <b>Custom GPT</b> no ChatGPT com a base unificada, permitindo interações precisas com o pensamento de Silvio Meira.</p>
-            </div>
+        <section id="biografia">
+            <h2>Quem é Silvio Meira?</h2>
+            <p>
+                <b>Silvio Meira</b> é cientista da computação, professor e empreendedor brasileiro, amplamente reconhecido por sua liderança em engenharia de software, inovação e transformação digital. Nascido em Taperoá, na Paraíba, Meira tornou-se <b>Professor Emérito do Centro de Informática da UFPE</b>, Professor Extraordinário da <b>CESAR School</b> e Fundador/Cientista-chefe da <b>TDS Company</b>.
+            </p>
+            <p>
+                Sua formação acadêmica é robusta: graduado em Engenharia Eletrônica pelo <b>ITA</b>, mestre pela UFPE e doutor em Ciência da Computação pela <b>University of Kent</b>, no Reino Unido. Essa trajetória permite que ele transite com autoridade entre a pesquisa de ponta e a estratégia de mercado, sendo a figura central na criação e consolidação do <b>Porto Digital</b> no Recife, um dos maiores parques tecnológicos do Brasil.
+            </p>
+            <p>
+                Como articulador de ecossistemas, Silvio Meira não apenas forma talentos, mas desenha caminhos para startups e grandes corporações ganharem escala. Sua atuação foi reconhecida com a <b>Ordem Nacional do Mérito Científico</b> e a <b>Ordem de Rio Branco</b>, consolidando-o como um dos intérpretes mais influentes de como a tecnologia reorganiza as instituições e o comportamento social no Brasil.
+            </p>
+        </section>
+
+        <div class="objective-box">
+            <h3>O Objetivo do Projeto</h3>
+            <p>
+                A iniciativa <b>Silvio Meira Digital</b> nasceu para capturar a essência de décadas de publicações públicas do professor e transformá-las em um ativo de inteligência estruturado. O foco não é apenas coletar dados, mas entender a <b>forma de escrita</b>, os <b>padrões de conversa</b> e a lógica estratégica de Meira.
+            </p>
+            <p>
+                O resultado final deste pipeline é a criação de um <b>Custom GPT no ChatGPT</b>. Esta ferramenta servirá como um mentor digital para startups e negócios, oferecendo insights baseados na vasta base de conhecimento do professor sobre efeitos de rede, ecossistemas figitais e transformação estratégica.
+            </p>
         </div>
 
-        <div class="stack">
-            <h2>Stack de Engenharia</h2>
-            <div class="tags">
-                <span class="tag">Python 3.10+</span>
-                <span class="tag">Playwright</span>
-                <span class="tag">BeautifulSoup4</span>
-                <span class="tag">Ollama</span>
-                <span class="tag">Llama 3</span>
-                <span class="tag">YT-DLP</span>
-                <span class="tag">FFmpeg</span>
-                <span class="tag">Markdownify</span>
+        <section id="pipeline">
+            <h2>Como Funciona</h2>
+            <p>Nosso pipeline de dados é dividido em três camadas críticas de engenharia:</p>
+            <div class="pipeline-grid">
+                <div class="step">
+                    <h4>1. Coleta e Crawler</h4>
+                    <p>Utilizamos <b>Playwright</b> para navegar pelo acervo digital público, garantindo a captura fiel de posts e transcrições de mídia.</p>
+                </div>
+                <div class="step">
+                    <h4>2. Estruturação MD</h4>
+                    <p>O conteúdo é convertido para <b>Markdown</b> limpo, removendo ruídos visuais e mantendo apenas o conhecimento puro.</p>
+                </div>
+                <div class="step">
+                    <h4>3. Fine-Tuning & GPT</h4>
+                    <p>A base segmentada alimenta o <b>Custom GPT</b>, criando uma interface de conversa que reflete os padrões cognitivos de Silvio Meira.</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="collab-section">
+            <h2>Contribua com o Projeto</h2>
+            <p>
+                Este projeto é aberto e movido pela comunidade. Se você entende de Python, IA ou Engenharia de Dados, junte-se a nós para aprimorar este pipeline.
+            </p>
+            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn">Colaborar no GitHub</a>
+        </section>
 
         <footer>
-            <p>&copy; 2026 Silvio Meira Digital Content Pipeline.</p>
+            <p>&copy; 2026 Silvio Meira Digital Content Pipeline. Desenvolvido para impulsionar a inovação figital.</p>
         </footer>
     </div>
 
