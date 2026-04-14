@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Silvio Meira Digital" width="600">
+  <img src="assets/banner_rounded.png" alt="Silvio Meira Digital" width="150">
 </p>
 
 # Silvio Meira Digital - Content Pipeline
