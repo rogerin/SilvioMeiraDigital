@@ -16,6 +16,8 @@
             --text-muted: #94a3b8;
             --accent: #60a5fa;
             --code-bg: #020617;
+            --user-chat: #334155;
+            --ai-chat: #1e293b;
         }
 
         * {
@@ -33,7 +35,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -45,22 +47,17 @@
         }
 
         .hero-img {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--primary);
             box-shadow: 0 0 40px rgba(37, 99, 235, 0.4);
             margin-bottom: 2rem;
-            transition: transform 0.5s ease;
-        }
-        
-        .hero-img:hover {
-            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             font-weight: 800;
             background: linear-gradient(to right, #60a5fa, #2563eb);
             -webkit-background-clip: text;
@@ -69,7 +66,7 @@
         }
 
         .tagline {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--accent);
             font-weight: 600;
             margin-bottom: 3rem;
@@ -77,14 +74,31 @@
             letter-spacing: 2px;
         }
 
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
         section {
-            margin-bottom: 100px;
+            margin-bottom: 120px;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 2.5rem;
             color: var(--text);
             border-left: 5px solid var(--primary);
             padding-left: 20px;
@@ -94,86 +108,111 @@
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             color: var(--text-muted);
-            text-align: justify;
         }
 
-        b {
-            color: var(--text);
+        /* Chat Interface */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .chat-bubble {
+            max-width: 85%;
+            padding: 25px;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chat-bubble.user {
+            align-self: flex-end;
+            background: var(--user-chat);
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-bubble.ai {
+            align-self: flex-start;
+            background: var(--ai-chat);
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .chat-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .user .chat-label { color: var(--accent); }
+        .ai .chat-label { color: var(--primary); }
+
+        .chat-content {
+            font-size: 1.05rem;
+        }
+
+        .chat-content ul, .chat-content ol {
+            margin: 15px 0 15px 25px;
+        }
+
+        .chat-content li {
+            margin-bottom: 8px;
         }
 
         /* Técnicas Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
         .tech-card {
             background: var(--card-bg);
             padding: 30px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 30px;
             transition: all 0.3s ease;
         }
 
         .tech-card:hover {
             border-color: var(--primary);
-            transform: scale(1.01);
-        }
-
-        .tech-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            gap: 15px;
         }
 
         .tech-icon {
             background: rgba(37, 99, 235, 0.1);
             color: var(--primary);
-            padding: 8px 15px;
-            border-radius: 10px;
+            padding: 4px 12px;
+            border-radius: 8px;
             font-family: 'Fira Code', monospace;
-            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: inline-block;
         }
 
-        .tech-card h3 {
-            font-size: 1.4rem;
-            color: var(--text);
-        }
-
-        .tech-card code {
-            display: block;
-            background: var(--code-bg);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 1rem 0;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            color: var(--accent);
-            overflow-x: auto;
-        }
-
-        .cta-inline {
-            display: flex;
+        .cta-pr {
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             color: var(--primary);
+            font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
-            font-size: 0.95rem;
-            margin-top: 1rem;
+            margin-top: 20px;
         }
 
-        .cta-inline:hover {
-            text-decoration: underline;
-        }
-
-        .cta-inline span {
+        .cta-pr span {
             background: var(--primary);
             color: white;
-            padding: 2px 8px;
-            border-radius: 5px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
         }
 
-        /* Colaboração */
+        /* Colaboração Final */
         .collab-section {
             text-align: center;
             background: linear-gradient(135deg, var(--primary), #1d4ed8);
@@ -181,37 +220,6 @@
             padding: 80px 40px;
             border-radius: 32px;
             margin-top: 100px;
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
-        }
-
-        .collab-section h2 {
-            border: none;
-            padding: 0;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .collab-section p {
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 800;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         footer {
@@ -219,13 +227,11 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .hero-img { width: 180px; height: 180px; }
+        @media (max-width: 600px) {
+            .chat-bubble { max-width: 95%; }
+            header { padding: 60px 0 40px; }
         }
     </style>
 </head>
@@ -236,77 +242,89 @@
             <img src="assets/silviomeira.jpeg" alt="Silvio Meira" class="hero-img">
             <h1>Silvio Meira Digital</h1>
             <p class="tagline">Inteligência Coletiva & Engenharia de Futuro</p>
-            <a href="https://chatgpt.com/g/g-686feaa6db5c819181a9e277a5563160-silvio-meira-digital" class="btn" style="background: var(--accent); color: var(--bg); margin-bottom: 2rem;">🚀 Testar no ChatGPT</a>
+            <div class="hero-actions">
+                <a href="https://chatgpt.com/g/g-686feaa6db5c819181a9e277a5563160-silvio-meira-digital" class="btn" style="background: var(--accent); color: var(--bg);">🚀 Testar no ChatGPT</a>
+                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn" style="background: transparent; border: 2px solid var(--primary);">👨‍💻 Colaborar via PR</a>
+            </div>
         </header>
 
         <section id="biografia">
-            <h2>Quem é Silvio Meira?</h2>
+            <h2>O Projeto</h2>
             <p>
-                <b>Silvio Meira</b> é cientista da computação, professor e empreendedor brasileiro, amplamente reconhecido por sua liderança em engenharia de software, inovação e transformação digital. Atualmente, ele é a figura central por trás da <b>TDS Company</b> e do <b>Porto Digital</b>, focando sua visão estratégica em como a tecnologia reorganiza as instituições e o comportamento social no Brasil.
+                <b>Silvio Meira Digital</b> é um experimento de engenharia de dados que captura a essência cognitiva e o estilo estratégico de uma das mentes mais brilhantes da tecnologia brasileira. Coletamos dados públicos de décadas de publicações para entender padrões de escrita e pensamento, auxiliando startups e negócios a navegar na complexidade figital.
             </p>
-            <p>
-                Sua marca registrada é a capacidade de traduzir complexidade tecnológica em estratégia de negócio. Menos "evangelista" e mais um intérprete profundo, Meira ajuda o mercado a entender que inovação não é adoção de ferramentas, mas mudança estrutural na cultura e nos modelos de valor.
-            </p>
+        </section>
+
+        <section id="exemplo">
+            <h2>Exemplo de Uso</h2>
+            <p>Veja como o mentor digital responde a desafios reais de negócios com a precisão e o estilo característicos do Professor Silvio Meira.</p>
+            
+            <div class="chat-container">
+                <!-- User Prompt -->
+                <div class="chat-bubble user">
+                    <span class="chat-label">Input / Prompt</span>
+                    <div class="chat-content">
+                        Olá Silvio, tenho uma startup para incentivar a corrida de rua. Que dicas você me daria para melhorar a conversão de novos usuários para o plano pago, que não é barato?
+                    </div>
+                </div>
+
+                <!-- AI Response -->
+                <div class="chat-bubble ai">
+                    <span class="chat-label">Output / Silvio Meira Digital</span>
+                    <div class="chat-content">
+                        <p>Claro. E vou começar com a provocação certa: <b>talvez o problema não seja o preço</b>. Talvez seja o usuário ainda não entender por que pagar por isso.</p>
+                        <p>Quando o plano “não é barato”, a venda não acontece por empurrão comercial. Acontece quando você aumenta a percepção de valor e reduz o risco de entrada. O que eu faria:</p>
+                        
+                        <ul>
+                            <li><b>Venda resultado, não corrida:</b> Ninguém compra treinos, compra a transformação (ex: completar os primeiros 5km).</li>
+                            <li><b>Segmentação Brutal:</b> Pare de vender para "quem corre". Escolha um ICP claro (ex: iniciantes inconsistentes).</li>
+                            <li><b>Reduza o Risco:</b> Crie uma "escada de valor" com entradas menores em vez de focar apenas na assinatura anual.</li>
+                            <li><b>Onboarding Vitória em 72h:</b> O usuário precisa sentir progresso imediato nos primeiros 3 dias.</li>
+                            <li><b>Comunidade como Ativo:</b> Corrida sem rede vira utilitário. Com pertencimento, vira hábito social.</li>
+                        </ul>
+                        
+                        <p>Minha síntese: Plano caro não se vende por preço. Se vende por clareza de transformação. <b>O seu usuário compra corrida, ou compra a versão dele mesmo que só existe após correr?</b></p>
+                    </div>
+                </div>
+            </div>
+            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-pr"><span>PR</span> Aprimore nossos padrões de resposta. Faça seu Pull Request! &rarr;</a>
         </section>
 
         <section id="tecnicas">
             <h2>Técnicas de Engenharia</h2>
-            <p>O pipeline <b>Silvio Meira Digital</b> utiliza técnicas avançadas de processamento de dados para garantir fidelidade e contexto. Conheça as principais:</p>
-
-            <div class="tech-card">
-                <div class="tech-header">
-                    <div class="tech-icon">CRAWL</div>
-                    <h3>Headless Scraping Dinâmico</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <span class="tech-icon">CRAWLER</span>
+                    <h3>Playwright Engine</h3>
+                    <p>Captura de conteúdo dinâmico e SPA com renderização completa do DOM.</p>
+                    <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-pr"><span>PR</span> Melhore o crawler &rarr;</a>
                 </div>
-                <p>Para lidar com SPAs e carregamentos assíncronos, utilizamos o <b>Playwright</b>. Ele garante que todo o conteúdo figital seja capturado após o render completo do DOM.</p>
-                <code>await page.goto(url, { waitUntil: 'networkidle' });</code>
-                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Melhore nossa extração. Faça seu Pull Request! &rarr;</a>
-            </div>
-
-            <div class="tech-card">
-                <div class="tech-header">
-                    <div class="tech-icon">TRANS</div>
-                    <h3>Transcrição via Local LLM</h3>
+                <div class="tech-card">
+                    <span class="tech-icon">TRANSCRIPT</span>
+                    <h3>Ollama / Llama 3</h3>
+                    <p>Processamento local de áudio e vídeo transformando mídia em conhecimento textual.</p>
+                    <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-pr"><span>PR</span> Refine os prompts &rarr;</a>
                 </div>
-                <p>Integramos o <b>Ollama (Llama 3)</b> para transcrever áudios e vídeos. A IA não apenas transcreve, mas formata o texto em Markdown estruturado com semântica rica.</p>
-                <code>ollama run llama3 "Transcreva este áudio em Markdown..."</code>
-                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Otimize nosso prompt de transcrição. Contribua com um PR! &rarr;</a>
-            </div>
-
-            <div class="tech-card">
-                <div class="tech-header">
-                    <div class="tech-icon">CLEAN</div>
-                    <h3>Sanitização com Regex e BS4</h3>
+                <div class="tech-card">
+                    <span class="tech-icon">CHUNKING</span>
+                    <h3>RAG Optimization</h3>
+                    <p>Segmentação inteligente para máxima relevância dentro da janela de contexto.</p>
+                    <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-pr"><span>PR</span> Otimize os chunks &rarr;</a>
                 </div>
-                <p>Limpamos o ruído das páginas (menus, footers, anúncios) usando seletores avançados e expressões regulares para manter apenas o "corpo" do pensamento de Silvio Meira.</p>
-                <code>re.sub(r'[\n]{3,}', '\n\n', cleaned_text)</code>
-                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Ajude a refinar nossos filtros de limpeza. Faça seu Pull Request! &rarr;</a>
-            </div>
-
-            <div class="tech-card">
-                <div class="tech-header">
-                    <div class="tech-icon">CHUNK</div>
-                    <h3>Segmentação para Context Window</h3>
-                </div>
-                <p>Dividimos a base unificada em chunks inteligentes para respeitar os limites de contexto do Custom GPT, garantindo respostas precisas e sem perda de histórico.</p>
-                <code>LIMITE_TAMANHO = 5_000_000  # 5MB per chunk</code>
-                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="cta-inline"><span>PR</span> Melhore nossa lógica de segmentação. Contribua via PR! &rarr;</a>
             </div>
         </section>
 
         <section class="collab-section">
-            <h2>O Projeto é Coletivo</h2>
-            <p>
-                O objetivo final é criar um <b>Custom GPT</b> que sirva de mentor estratégico para startups. Sua contribuição é vital para que essa inteligência seja o mais fiel possível.
-            </p>
-            <div style="margin-bottom: 2rem;">
-                <a href="https://chatgpt.com/g/g-686feaa6db5c819181a9e277a5563160-silvio-meira-digital" class="btn" style="background: var(--accent); color: var(--bg);">🚀 Testar o Silvio Meira Digital</a>
+            <h2>Faça parte desta rede</h2>
+            <p>O Silvio Meira Digital é um projeto vivo e coletivo. Se você é dev, cientista de dados ou estrategista, sua contribuição é fundamental.</p>
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://chatgpt.com/g/g-686feaa6db5c819181a9e277a5563160-silvio-meira-digital" class="btn" style="background: white; color: var(--primary);">🚀 Testar Agora</a>
+                <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn" style="background: transparent; border: 2px solid white;">📥 Enviar Pull Request</a>
             </div>
-            <a href="https://github.com/rogerin/SilvioMeiraDigital" class="btn" style="border: 2px solid white; background: transparent; color: white;">Abrir um Pull Request no GitHub</a>
         </section>
 
         <footer>
-            <p>&copy; 2026 Silvio Meira Digital Content Pipeline. Desenvolvido para impulsionar a inovação figital.</p>
+            <p>&copy; 2026 Silvio Meira Digital | Engenharia de Ecossistemas Figitais.</p>
         </footer>
     </div>
 
